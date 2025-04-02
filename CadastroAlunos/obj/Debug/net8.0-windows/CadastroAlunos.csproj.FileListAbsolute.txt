@@ -1,0 +1,17 @@
+C:\Users\Aluno_Manha\source\repos\CadastroAlunos\CadastroAlunos\bin\Debug\net8.0-windows\CadastroAlunos.exe
+C:\Users\Aluno_Manha\source\repos\CadastroAlunos\CadastroAlunos\bin\Debug\net8.0-windows\CadastroAlunos.deps.json
+C:\Users\Aluno_Manha\source\repos\CadastroAlunos\CadastroAlunos\bin\Debug\net8.0-windows\CadastroAlunos.runtimeconfig.json
+C:\Users\Aluno_Manha\source\repos\CadastroAlunos\CadastroAlunos\bin\Debug\net8.0-windows\CadastroAlunos.dll
+C:\Users\Aluno_Manha\source\repos\CadastroAlunos\CadastroAlunos\bin\Debug\net8.0-windows\CadastroAlunos.pdb
+C:\Users\Aluno_Manha\source\repos\CadastroAlunos\CadastroAlunos\obj\Debug\net8.0-windows\CadastroAlunos.cadastroAlunos.resources
+C:\Users\Aluno_Manha\source\repos\CadastroAlunos\CadastroAlunos\obj\Debug\net8.0-windows\CadastroAlunos.csproj.GenerateResource.cache
+C:\Users\Aluno_Manha\source\repos\CadastroAlunos\CadastroAlunos\obj\Debug\net8.0-windows\CadastroAlunos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Aluno_Manha\source\repos\CadastroAlunos\CadastroAlunos\obj\Debug\net8.0-windows\CadastroAlunos.AssemblyInfoInputs.cache
+C:\Users\Aluno_Manha\source\repos\CadastroAlunos\CadastroAlunos\obj\Debug\net8.0-windows\CadastroAlunos.AssemblyInfo.cs
+C:\Users\Aluno_Manha\source\repos\CadastroAlunos\CadastroAlunos\obj\Debug\net8.0-windows\CadastroAlunos.csproj.CoreCompileInputs.cache
+C:\Users\Aluno_Manha\source\repos\CadastroAlunos\CadastroAlunos\obj\Debug\net8.0-windows\CadastroAlunos.dll
+C:\Users\Aluno_Manha\source\repos\CadastroAlunos\CadastroAlunos\obj\Debug\net8.0-windows\refint\CadastroAlunos.dll
+C:\Users\Aluno_Manha\source\repos\CadastroAlunos\CadastroAlunos\obj\Debug\net8.0-windows\CadastroAlunos.pdb
+C:\Users\Aluno_Manha\source\repos\CadastroAlunos\CadastroAlunos\obj\Debug\net8.0-windows\CadastroAlunos.genruntimeconfig.cache
+C:\Users\Aluno_Manha\source\repos\CadastroAlunos\CadastroAlunos\obj\Debug\net8.0-windows\ref\CadastroAlunos.dll
+C:\Users\Aluno_Manha\source\repos\CadastroAlunos\CadastroAlunos\obj\Debug\net8.0-windows\CadastroAlunos.csproj.AssemblyReference.cache
