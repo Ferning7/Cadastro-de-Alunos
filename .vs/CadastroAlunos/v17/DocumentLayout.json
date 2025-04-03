@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{33E798CD-288A-49DC-8782-3B853F4C21E4}|CadastroAlunos\\CadastroAlunos.csproj|solutionrelative:cadastroalunos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{33E798CD-288A-49DC-8782-3B853F4C21E4}|CadastroAlunos\\CadastroAlunos.csproj|c:\\users\\aluno_manha\\documents\\logincadastro\\cadastroalunos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{33E798CD-288A-49DC-8782-3B853F4C21E4}|CadastroAlunos\\CadastroAlunos.csproj|C:\\Users\\Aluno_Manha\\Documents\\LoginCadastro\\cadastroalunos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{33E798CD-288A-49DC-8782-3B853F4C21E4}|CadastroAlunos\\CadastroAlunos.csproj|solutionrelative:cadastroalunos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "CadastroAlunos\\Form1.cs",
               "ToolTip": "C:\\Users\\Aluno_Manha\\Documents\\LoginCadastro\\CadastroAlunos\\Form1.cs",
               "RelativeToolTip": "CadastroAlunos\\Form1.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAGMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAqwIUAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-02T14:06:51.393Z",
               "EditorCaption": ""
@@ -50,8 +50,7 @@
               "ToolTip": "C:\\Users\\Aluno_Manha\\Documents\\LoginCadastro\\CadastroAlunos\\Form1.cs [Projeto]",
               "RelativeToolTip": "CadastroAlunos\\Form1.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T11:05:54.598Z",
-              "EditorCaption": " [Projeto]"
+              "WhenOpened": "2025-04-03T11:05:54.598Z"
             },
             {
               "$type": "Document",
@@ -63,8 +62,7 @@
               "RelativeToolTip": "CadastroAlunos\\Form1.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T14:02:07.025Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T14:02:07.025Z"
             }
           ]
         }

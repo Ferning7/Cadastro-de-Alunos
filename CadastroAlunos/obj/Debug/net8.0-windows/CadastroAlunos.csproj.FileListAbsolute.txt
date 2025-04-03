@@ -49,3 +49,4 @@ C:\Users\Aluno_Manha\Documents\LoginCadastro\CadastroAlunos\obj\Debug\net8.0-win
 C:\Users\Aluno_Manha\Documents\LoginCadastro\CadastroAlunos\obj\Debug\net8.0-windows\CadastroAlunos.pdb
 C:\Users\Aluno_Manha\Documents\LoginCadastro\CadastroAlunos\obj\Debug\net8.0-windows\CadastroAlunos.genruntimeconfig.cache
 C:\Users\Aluno_Manha\Documents\LoginCadastro\CadastroAlunos\obj\Debug\net8.0-windows\ref\CadastroAlunos.dll
+C:\Users\Aluno_Manha\Documents\LoginCadastro\CadastroAlunos\obj\Debug\net8.0-windows\CadastroAlunos.sourcelink.json
