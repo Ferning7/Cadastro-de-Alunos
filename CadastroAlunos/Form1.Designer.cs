@@ -34,6 +34,7 @@
             txtCurso = new TextBox();
             txtNome = new TextBox();
             lblTelefone = new Label();
+            btnCadastrar = new Button();
             lblCurso = new Label();
             lblDataNascimento = new Label();
             lblNome = new Label();
@@ -43,7 +44,6 @@
             btnExcluir = new Button();
             btnEditar = new Button();
             btnListar = new Button();
-            btnCadastrar = new Button();
             gbInfos.SuspendLayout();
             gbBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GrindView).BeginInit();
@@ -56,6 +56,7 @@
             gbInfos.Controls.Add(txtCurso);
             gbInfos.Controls.Add(txtNome);
             gbInfos.Controls.Add(lblTelefone);
+            gbInfos.Controls.Add(btnCadastrar);
             gbInfos.Controls.Add(lblCurso);
             gbInfos.Controls.Add(lblDataNascimento);
             gbInfos.Controls.Add(lblNome);
@@ -68,69 +69,79 @@
             // 
             // mskdTelefone
             // 
-            mskdTelefone.Location = new Point(421, 197);
+            mskdTelefone.Location = new Point(462, 194);
             mskdTelefone.Mask = "(00) 00000-0000";
             mskdTelefone.Name = "mskdTelefone";
-            mskdTelefone.Size = new Size(143, 35);
-            mskdTelefone.TabIndex = 6;
+            mskdTelefone.Size = new Size(143, 26);
+            mskdTelefone.TabIndex = 4;
             mskdTelefone.MaskInputRejected += mskdTelefone_MaskInputRejected;
             // 
             // mskdDataNascimento
             // 
-            mskdDataNascimento.Location = new Point(421, 93);
+            mskdDataNascimento.Location = new Point(462, 90);
             mskdDataNascimento.Mask = "00/00/0000";
             mskdDataNascimento.Name = "mskdDataNascimento";
-            mskdDataNascimento.Size = new Size(143, 35);
-            mskdDataNascimento.TabIndex = 5;
+            mskdDataNascimento.Size = new Size(143, 26);
+            mskdDataNascimento.TabIndex = 3;
             mskdDataNascimento.MaskInputRejected += mskdDataNascimento_MaskInputRejected;
             // 
             // txtCurso
             // 
-            txtCurso.Location = new Point(22, 197);
+            txtCurso.Location = new Point(77, 194);
             txtCurso.Name = "txtCurso";
-            txtCurso.Size = new Size(312, 35);
+            txtCurso.Size = new Size(312, 26);
             txtCurso.TabIndex = 2;
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(22, 93);
+            txtNome.Location = new Point(77, 90);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(312, 35);
+            txtNome.Size = new Size(312, 26);
             txtNome.TabIndex = 1;
             // 
             // lblTelefone
             // 
             lblTelefone.AutoSize = true;
-            lblTelefone.Location = new Point(421, 162);
+            lblTelefone.Location = new Point(462, 159);
             lblTelefone.Name = "lblTelefone";
-            lblTelefone.Size = new Size(90, 29);
+            lblTelefone.Size = new Size(61, 20);
             lblTelefone.TabIndex = 3;
             lblTelefone.Text = "Telefone";
+            // 
+            // btnCadastrar
+            // 
+            btnCadastrar.Location = new Point(295, 247);
+            btnCadastrar.Name = "btnCadastrar";
+            btnCadastrar.Size = new Size(123, 39);
+            btnCadastrar.TabIndex = 5;
+            btnCadastrar.Text = "Cadastrar";
+            btnCadastrar.UseVisualStyleBackColor = true;
+            btnCadastrar.Click += btnCadastrar_Click;
             // 
             // lblCurso
             // 
             lblCurso.AutoSize = true;
-            lblCurso.Location = new Point(22, 165);
+            lblCurso.Location = new Point(77, 162);
             lblCurso.Name = "lblCurso";
-            lblCurso.Size = new Size(66, 29);
+            lblCurso.Size = new Size(44, 20);
             lblCurso.TabIndex = 2;
             lblCurso.Text = "Curso";
             // 
             // lblDataNascimento
             // 
             lblDataNascimento.AutoSize = true;
-            lblDataNascimento.Location = new Point(415, 60);
+            lblDataNascimento.Location = new Point(456, 57);
             lblDataNascimento.Name = "lblDataNascimento";
-            lblDataNascimento.Size = new Size(189, 29);
+            lblDataNascimento.Size = new Size(129, 20);
             lblDataNascimento.TabIndex = 1;
             lblDataNascimento.Text = "Data de Nascimento";
             // 
             // lblNome
             // 
             lblNome.AutoSize = true;
-            lblNome.Location = new Point(25, 60);
+            lblNome.Location = new Point(80, 57);
             lblNome.Name = "lblNome";
-            lblNome.Size = new Size(65, 29);
+            lblNome.Size = new Size(45, 20);
             lblNome.TabIndex = 0;
             lblNome.Text = "Nome";
             // 
@@ -141,7 +152,6 @@
             gbBotoes.Controls.Add(btnExcluir);
             gbBotoes.Controls.Add(btnEditar);
             gbBotoes.Controls.Add(btnListar);
-            gbBotoes.Controls.Add(btnCadastrar);
             gbBotoes.Location = new Point(54, 339);
             gbBotoes.Name = "gbBotoes";
             gbBotoes.Size = new Size(701, 325);
@@ -157,30 +167,31 @@
             GrindView.RowHeadersWidth = 62;
             GrindView.Size = new Size(688, 239);
             GrindView.TabIndex = 10;
+            GrindView.CellContentClick += GrindView_CellContentClick;
             // 
             // btnLimpar
             // 
-            btnLimpar.Location = new Point(571, 22);
+            btnLimpar.Location = new Point(295, 22);
             btnLimpar.Name = "btnLimpar";
             btnLimpar.Size = new Size(123, 39);
-            btnLimpar.TabIndex = 9;
+            btnLimpar.TabIndex = 8;
             btnLimpar.Text = "Limpar";
             btnLimpar.UseVisualStyleBackColor = true;
             btnLimpar.Click += btnLimpar_Click;
             // 
             // btnExcluir
             // 
-            btnExcluir.Location = new Point(441, 22);
+            btnExcluir.Location = new Point(572, 22);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(123, 39);
-            btnExcluir.TabIndex = 8;
+            btnExcluir.TabIndex = 9;
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = true;
             btnExcluir.Click += btnExcluir_Click;
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(287, 22);
+            btnEditar.Location = new Point(151, 22);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(123, 39);
             btnEditar.TabIndex = 7;
@@ -190,7 +201,7 @@
             // 
             // btnListar
             // 
-            btnListar.Location = new Point(136, 22);
+            btnListar.Location = new Point(7, 22);
             btnListar.Name = "btnListar";
             btnListar.Size = new Size(123, 39);
             btnListar.TabIndex = 6;
@@ -198,19 +209,9 @@
             btnListar.UseVisualStyleBackColor = true;
             btnListar.Click += btnListar_Click;
             // 
-            // btnCadastrar
-            // 
-            btnCadastrar.Location = new Point(7, 22);
-            btnCadastrar.Name = "btnCadastrar";
-            btnCadastrar.Size = new Size(123, 39);
-            btnCadastrar.TabIndex = 5;
-            btnCadastrar.Text = "Cadastrar";
-            btnCadastrar.UseVisualStyleBackColor = true;
-            btnCadastrar.Click += btnCadastrar_Click;
-            // 
             // cadastroAlunos
             // 
-            AutoScaleDimensions = new SizeF(11F, 29F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(807, 688);
             Controls.Add(gbBotoes);

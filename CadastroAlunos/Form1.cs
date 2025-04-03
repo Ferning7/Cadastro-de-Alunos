@@ -1,5 +1,6 @@
+
 using MySql.Data.MySqlClient;
-using System.ComponentModel.DataAnnotations;
+
 using System.Data;
 
 namespace CadastroAlunos
@@ -11,10 +12,8 @@ namespace CadastroAlunos
             InitializeComponent();
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
+        private void groupBox2_Enter(object sender, EventArgs e) { }
 
-        }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
@@ -26,76 +25,40 @@ namespace CadastroAlunos
                 string dataNascimento = mskdDataNascimento.Text;
                 string Telefone = mskdTelefone.Text;
 
+                DateTime dataMySqlFormat = Convert.ToDateTime(dataNascimento);
+                string dataNascimentoFormat = dataMySqlFormat.ToString("yyyy-MM-dd");
+
+                string conexaoBanco = "Server=localHost; Database=cadastroalunos; Uid=root; pwd=''";
+                MySqlConnection conexao = new MySqlConnection(conexaoBanco);
+
+                conexao.Open();
+
+                string insert = "INSERT INTO cadastroalunos (Nome, data_nascimento, Curso, Telefone) values (@Nome, @dataNascimento, @Curso, @Telefone)";
+                MySqlCommand insertAluno = new MySqlCommand(insert, conexao);
 
 
-                if (nomeAluno != "" && Curso != "" && dataNascimento != "" )
+                insertAluno.Parameters.AddWithValue("@Nome", nomeAluno);
+                insertAluno.Parameters.AddWithValue("@dataNascimento", dataNascimentoFormat);
+                insertAluno.Parameters.AddWithValue("@Curso", Curso);
+                insertAluno.Parameters.AddWithValue("@Telefone", Telefone);
+
+                int contLinhas = Convert.ToInt32(insertAluno.ExecuteNonQuery());
+
+
+
+                if (contLinhas > 0)
                 {
-                    string conexaoBanco = "Server=localHost; Database=cadastroalunos; Uid=root; pwd=''";
-                    MySqlConnection conexao = new MySqlConnection(conexaoBanco);
-                    
-                    conexao.Open();
-
-                    DateTime dataMySqlFormat = Convert.ToDateTime(mskdDataNascimento)
-                    string dataNascimentoFormat = dataMySqlFormat.ToString("yyyy_MM_dd");
-                
-                    string consultaAlunos = "SELECT * FROM cadastroAlunos WHERE Nome = @Nome and data_nascimento = @dataNascimento and Curso = @Curso and Telefone = @Telefone ";
-                    MySqlCommand comandoSQL = new MySqlCommand(consultaUsuario, conexao);
-
-
-
-                    comandoSQL.Parameters.AddWithValue("@usuario", usuarioCadastro);
-                    comandoSQL.Parameters.AddWithValue("@senha", senhaCadastro);
-
-
-
-                    int registro = Convert.ToInt32(comandoSQL.ExecuteScalar());
-
-
-
-                    if (registro > 0)
-                    {
-                        MessageBox.Show("Esse usuário já existe!");
-                    }
-                    else
-                    {
-
-                        string cadastroSQL = "INSERT INTO usuarios (usuario, senha) values (@usuario, @senha)";
-                        MySqlCommand comandoSQLCadastro = new MySqlCommand(cadastroSQL, conexao);
-
-                        comandoSQLCadastro.Parameters.AddWithValue("@Nome", usu);
-                        comandoSQLCadastro.Parameters.AddWithValue("@Curso", senhaCadastro);
-                        comandoSQLCadastro.Parameters.AddWithValue("@data_nascimento", senhaCadastro);
-                        comandoSQLCadastro.Parameters.AddWithValue("@Telefone", senhaCadastro);
-
-                        int insert = Convert.ToInt32(comandoSQLCadastro.ExecuteScalar());
-
-                        string consultaCadastro = "select * from usuarios where usuario = @usuario and senha = @senha";
-                        MySqlCommand comandoSQLConsultaCadastro = new MySqlCommand(consultaCadastro, conexao);
-
-                        comandoSQLConsultaCadastro.Parameters.AddWithValue("@usuario", usuarioCadastro);
-                        comandoSQLConsultaCadastro.Parameters.AddWithValue("@senha", senhaCadastro);
-
-                        int cregistroCadastro = Convert.ToInt32(comandoSQLConsultaCadastro.ExecuteScalar());
-
-                        if (cregistroCadastro > 0)
-                        {
-                            MessageBox.Show("Cadastrado com sucesso!");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Não foi possível cadastrar o usuário!");
-                        }
-
-                    }
-
-                    conexao.Close();
-
+                    MessageBox.Show("Usuário cadastrado!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Os campo não pode estar vazios!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    MessageBox.Show("Não foi possível cadastrar!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
+                conexao.Close();
+
+
+
             }
             catch (Exception ex)
             {
@@ -104,7 +67,7 @@ namespace CadastroAlunos
             }
 
         }
-        
+
 
         private void btnListar_Click(object sender, EventArgs e)
         {
@@ -113,7 +76,7 @@ namespace CadastroAlunos
 
             conexao.Open();
 
-            string consultaSQL = "SELECT * FROM cadastroAlunos";
+            string consultaSQL = "SELECT * FROM cadastroalunos";
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter(consultaSQL, conexao);
 
             DataTable dataTable = new DataTable();
@@ -122,12 +85,15 @@ namespace CadastroAlunos
 
             GrindView.DataSource = dataTable;
             GrindView.AutoResizeColumns();
+
+            conexao.Open();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
 
         }
+
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -136,7 +102,10 @@ namespace CadastroAlunos
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-
+            txtCurso.Text = "";
+            txtNome.Text = "";
+            mskdTelefone.Text = "";
+            mskdDataNascimento.Text = "";
         }
 
 
@@ -146,6 +115,11 @@ namespace CadastroAlunos
         }
 
         private void mskdDataNascimento_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void GrindView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
