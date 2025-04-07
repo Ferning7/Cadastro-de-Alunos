@@ -89,7 +89,11 @@ namespace CadastroAlunos
 
             conexao.Close();
         }
-
+        public int BuscarId()
+        {
+            int idAlunoSelected = Convert.ToInt32(GrindView.CurrentRow.Cells[0].Value.ToString());
+            return idAlunoSelected;
+        }
         private void btnEditar_Click(object sender, EventArgs e)
         {
             try
@@ -99,7 +103,6 @@ namespace CadastroAlunos
                 string Curso = txtCurso.Text;
                 string dataNascimento = mskdDataNascimento.Text;
                 string Telefone = mskdTelefone.Text;
-                int idAlunoSelected = Convert.ToInt32(GrindView.CurrentRow.Cells[0].Value.ToString());
 
                 DateTime dataMySqlFormat = Convert.ToDateTime(dataNascimento);
                 string dataNascimentoFormat = dataMySqlFormat.ToString("yyyy-MM-dd");
@@ -109,6 +112,7 @@ namespace CadastroAlunos
 
                 conexao.Open();
 
+                int idAluno = BuscarId();
 
 
                 string update = "UPDATE cadastroalunos SET Nome = @nome, data_nascimento = @dataNascimento, Curso = @Curso, Telefone = @Telefone WHERE id = @id";
@@ -119,24 +123,23 @@ namespace CadastroAlunos
                 updateAluno.Parameters.AddWithValue("@dataNascimento", dataNascimentoFormat);
                 updateAluno.Parameters.AddWithValue("@Curso", Curso);
                 updateAluno.Parameters.AddWithValue("@Telefone", Telefone);
-                updateAluno.Parameters.AddWithValue("@id", idAlunoSelected);
-                    
+                updateAluno.Parameters.AddWithValue("@id", idAluno);
+
                 int contLinhas = updateAluno.ExecuteNonQuery();
 
 
 
                 if (contLinhas > 0)
                 {
-                    MessageBox.Show("Dados atualizados!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Dados alterados", "Atualização de dados", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Não foi possível editar!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Não foi possível editar!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
+
                 conexao.Close();
-
-
 
             }
             catch (Exception ex)
@@ -152,45 +155,42 @@ namespace CadastroAlunos
             try
             {
 
-                string nomeAluno = txtNome.Text;
-                string Curso = txtCurso.Text;
-                string dataNascimento = mskdDataNascimento.Text;
-                string Telefone = mskdTelefone.Text;
+                DialogResult result = MessageBox.Show("Deseja apagar este registro? ", "Atualização de dados", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                DateTime dataMySqlFormat = Convert.ToDateTime(dataNascimento);
-                string dataNascimentoFormat = dataMySqlFormat.ToString("yyyy-MM-dd");
-
-                string conexaoBanco = "Server=localHost; Database=cadastroalunos; Uid=root; pwd=''";
-                MySqlConnection conexao = new MySqlConnection(conexaoBanco);
-
-                conexao.Open();
-
-                string insert = "INSERT INTO cadastroalunos (Nome, data_nascimento, Curso, Telefone) values (@Nome, @dataNascimento, @Curso, @Telefone)";
-                MySqlCommand insertAluno = new MySqlCommand(insert, conexao);
-
-
-                insertAluno.Parameters.AddWithValue("@Nome", nomeAluno);
-                insertAluno.Parameters.AddWithValue("@dataNascimento", dataNascimentoFormat);
-                insertAluno.Parameters.AddWithValue("@Curso", Curso);
-                insertAluno.Parameters.AddWithValue("@Telefone", Telefone);
-
-                int contLinhas = Convert.ToInt32(insertAluno.ExecuteNonQuery());
-
-
-
-                if (contLinhas > 0)
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Usuário cadastrado!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                    string conexaoBanco = "Server=localHost; Database=cadastroalunos; Uid=root; pwd=''";
+                    MySqlConnection conexao = new MySqlConnection(conexaoBanco);
+
+                    conexao.Open();
+
+                    string delete = "DELETE from cadastroalunos WHERE nome = @nome";
+                    MySqlCommand deleteAluno = new MySqlCommand(delete, conexao);
+
+
+                    deleteAluno.Parameters.AddWithValue("@Nome", GrindView.CurrentRow.Cells[1].Value.ToString());
+
+
+
+                    int contLinhas = Convert.ToInt32(deleteAluno.ExecuteNonQuery());
+
+
+
+                    if (contLinhas > 0)
+                    {
+                        MessageBox.Show("Dados deletados!", "Atualização de dados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi possível deletar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    conexao.Close();
+
+
                 }
-                else
-                {
-                    MessageBox.Show("Não foi possível cadastrar!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-                conexao.Close();
-
-
-
             }
             catch (Exception ex)
             {
@@ -201,10 +201,10 @@ namespace CadastroAlunos
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            txtCurso.Text = "";
-            txtNome.Text = "";
-            mskdTelefone.Text = "";
-            mskdDataNascimento.Text = "";
+            txtCurso.Clear();
+            txtNome.Clear();
+            mskdTelefone.Clear();
+            mskdDataNascimento.Clear();
         }
 
 
