@@ -164,10 +164,13 @@
             GrindView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GrindView.Location = new Point(7, 79);
             GrindView.Name = "GrindView";
+            GrindView.RowHeadersVisible = false;
             GrindView.RowHeadersWidth = 62;
             GrindView.Size = new Size(688, 239);
             GrindView.TabIndex = 10;
+            GrindView.CellClick += GrindView_CellClick;
             GrindView.CellContentClick += GrindView_CellContentClick;
+            GrindView.CellDoubleClick += GrindView_CellDoubleClick;
             // 
             // btnLimpar
             // 
@@ -222,6 +225,7 @@
             MinimizeBox = false;
             Name = "cadastroAlunos";
             Text = "Cadastro de Alunos";
+            Load += cadastroAlunos_Load;
             gbInfos.ResumeLayout(false);
             gbInfos.PerformLayout();
             gbBotoes.ResumeLayout(false);

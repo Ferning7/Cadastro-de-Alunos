@@ -84,8 +84,12 @@ namespace CadastroAlunos
 
             dataAdapter.Fill(dataTable);
 
+            GrindView.AllowUserToAddRows = false;
+            GrindView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
             GrindView.DataSource = dataTable;
             GrindView.AutoResizeColumns();
+            GrindView.ClearSelection();
 
             conexao.Close();
         }
@@ -219,6 +223,44 @@ namespace CadastroAlunos
         }
 
         private void GrindView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void GrindView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    BuscarId();
+                    txtNome.Text = GrindView.Rows[e.RowIndex].Cells["nome"].Value.ToString();
+                    string dataNascimento = GrindView.Rows[e.RowIndex].Cells["dataNascimento"].Value.ToString();
+                    mskdDataNascimento.Text = DateTime.Parse(dataNascimento).ToString("dd/MM/yyyy");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao pegar dados" + ex.Message);
+            }
+        }
+
+        private void GrindView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    BuscarId();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar id do aluno" + ex.Message);
+            }
+        }
+
+        private void cadastroAlunos_Load(object sender, EventArgs e)
         {
 
         }
